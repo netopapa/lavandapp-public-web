@@ -89,7 +89,7 @@ export const EmailConfirmationFeedback = () => {
               </h1>
               {!isMobile && (
                 <img
-                  src="/src/assets/medal-star.png"
+                  src="../../src/assets/medal-star.png"
                   alt="medalha"
                   width="184px"
                 />
@@ -113,7 +113,7 @@ export const EmailConfirmationFeedback = () => {
 
             {isMobile && (
               <img
-                src="/src/assets/medal-star.png"
+                src="../../src/assets/medal-star.png"
                 alt="medalha"
                 width="80px"
                 style={{ margin: "0 auto" }}
