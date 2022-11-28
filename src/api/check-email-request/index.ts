@@ -4,13 +4,14 @@ import { CheckEmailResponseDTO } from "../dto/check-email-response.dto";
 import { CustomError } from "../dto/custom-error";
 
 const checkEmailRequest = async (
-  code: string
+  code: string,
+  type: "laundry" | "customer"
 ): Promise<CheckEmailResponseDTO> => {
   try {
     return (
       await axios.get<CheckEmailResponseDTO>(
         CONSTANTS.CORE_BASE_URL +
-          `pre-registration-customer/check-email/${code}`
+          `pre-registration-${type}/check-email/${code}`
       )
     ).data;
   } catch (e) {

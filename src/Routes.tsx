@@ -6,7 +6,7 @@ export const AppRoutes = () => (
   <HashRouter>
     <Routes>
       <Route index element={<Home />} />
-      <Route path="validar-email/:code" element={<EmailConfirmationFeedback />} />
+      <Route path="validar-email/:type/:code" element={<EmailConfirmationFeedback />} />
     </Routes>
   </HashRouter>
 );

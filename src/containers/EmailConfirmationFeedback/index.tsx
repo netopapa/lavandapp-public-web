@@ -14,13 +14,13 @@ type EmailConfirmationFeedbackState = {
 export const EmailConfirmationFeedback = () => {
   const isMobile = window.innerWidth < 700;
   const [state, setState] = useState<EmailConfirmationFeedbackState>({});
-  const { code } = useParams();
+  const { code, type } = useParams();
 
   const checkEmail = async () => {
     if (code) {
       try {
         setState((prev) => ({ ...prev, loading: true }));
-        const checkEmailResponse = await checkEmailRequest(code);
+        const checkEmailResponse = await checkEmailRequest(code, type as any);
         setState((prev) => ({ ...prev, checkEmailResponse }));
       } catch (error) {
         setState((prev) => ({ ...prev, error: true }));
