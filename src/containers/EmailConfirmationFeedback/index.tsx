@@ -36,6 +36,9 @@ export const EmailConfirmationFeedback = () => {
 
   const shortName = useMemo(() => {
     if (!state.checkEmailResponse) return null;
+
+    const name =
+      state.checkEmailResponse.name ?? state.checkEmailResponse.ownerName;
     if (state.checkEmailResponse.name.split(" ").length === 1)
       return state.checkEmailResponse.name;
 
@@ -57,7 +60,9 @@ export const EmailConfirmationFeedback = () => {
               alignItems: "center",
             }}
           >
-            <h1 style={{ color: "#fff", textAlign: 'center' }}>Erro ao validar email :(</h1>
+            <h1 style={{ color: "#fff", textAlign: "center" }}>
+              Erro ao validar email :(
+            </h1>
           </div>
         </>
       )}
