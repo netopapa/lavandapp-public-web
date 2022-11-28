@@ -1,4 +1,4 @@
-// import "./email-confirmation-feedback-styles.scss";
+import medalhaImg from '/src/assets/medal-star.png'
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import checkEmailRequest from "../../api/check-email-request";
@@ -52,7 +52,7 @@ export const EmailConfirmationFeedback = () => {
         <>
           <div
             style={{
-              backgroundColor: "#de4545",
+              backgroundColor: "#2196f3",
               height: "100vh",
               display: "flex",
               justifyContent: "center",
@@ -89,7 +89,7 @@ export const EmailConfirmationFeedback = () => {
               </h1>
               {!isMobile && (
                 <img
-                  src="../../src/assets/medal-star.png"
+                  src={medalhaImg}
                   alt="medalha"
                   width="184px"
                 />
@@ -99,9 +99,11 @@ export const EmailConfirmationFeedback = () => {
             <p
               style={{
                 color: "#fff",
+                margin: '0 auto',
                 textAlign: "center",
                 fontSize: "2em",
                 marginTop: "15%",
+                maxWidth: '900px'
               }}
             >
               Email foi validado com sucesso. Sua solicitação para cadastro na
@@ -113,7 +115,7 @@ export const EmailConfirmationFeedback = () => {
 
             {isMobile && (
               <img
-                src="../../src/assets/medal-star.png"
+                src={medalhaImg}
                 alt="medalha"
                 width="80px"
                 style={{ margin: "0 auto" }}
