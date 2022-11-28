@@ -38,11 +38,10 @@ export const EmailConfirmationFeedback = () => {
     if (!state.checkEmailResponse) return null;
 
     const name =
-      state.checkEmailResponse.name ?? state.checkEmailResponse.ownerName;
-    if (state.checkEmailResponse.name.split(" ").length === 1)
-      return state.checkEmailResponse.name;
+      state.checkEmailResponse.name ?? state.checkEmailResponse.displayName;
+    if (name.split(" ").length === 1) return state.checkEmailResponse.name;
 
-    const broke = state.checkEmailResponse.name.split(" ");
+    const broke = name.split(" ");
     return `${broke[0]} ${broke[broke.length - 1]}`;
   }, [state.checkEmailResponse]);
 
