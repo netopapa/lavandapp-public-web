@@ -52,7 +52,7 @@ export const EmailConfirmationFeedback = () => {
         <>
           <div
             style={{
-              backgroundColor: "#2196f3",
+              backgroundColor: "#de4545",
               height: "100vh",
               display: "flex",
               justifyContent: "center",
@@ -70,7 +70,7 @@ export const EmailConfirmationFeedback = () => {
         <>
           <div
             style={{
-              backgroundColor: "#99bad7",
+              backgroundColor: "#2196f3",
               height: "100vh",
               display: "flex",
               justifyContent: "center",
