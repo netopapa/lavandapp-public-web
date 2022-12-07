@@ -4,11 +4,14 @@ import { useParams } from "react-router-dom";
 import checkEmailRequest from "../../api/check-email-request";
 import { CheckEmailResponseDTO } from "../../api/dto/check-email-response.dto";
 import { Loading } from "../../components/loading";
+import { AxiosError } from 'axios';
+import { CustomError } from '../../api/dto/custom-error';
 
 type EmailConfirmationFeedbackState = {
   checkEmailResponse?: CheckEmailResponseDTO;
   loading?: boolean;
   error?: boolean;
+  errorText?: string;
 };
 
 export const EmailConfirmationFeedback = () => {
@@ -22,8 +25,8 @@ export const EmailConfirmationFeedback = () => {
         setState((prev) => ({ ...prev, loading: true }));
         const checkEmailResponse = await checkEmailRequest(code, type as any);
         setState((prev) => ({ ...prev, checkEmailResponse }));
-      } catch (error) {
-        setState((prev) => ({ ...prev, error: true }));
+      } catch (e) {
+        setState((prev) => ({ ...prev, error: true, errorText: (e as CustomError).msg }));
       } finally {
         setState((prev) => ({ ...prev, loading: false }));
       }
@@ -60,7 +63,7 @@ export const EmailConfirmationFeedback = () => {
             }}
           >
             <h1 style={{ color: "#fff", textAlign: "center" }}>
-              Erro ao validar email :(
+            {state.errorText || 'Erro ao validar email :('}
             </h1>
           </div>
         </>

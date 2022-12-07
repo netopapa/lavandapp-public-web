@@ -18,10 +18,17 @@ const checkEmailRequest = async (
     const error = e as AxiosError;
 
     let customError: CustomError = {
-      msg: "Erro ao validar email",
+      msg: "Erro ao validar email :(",
       httpStatus: error.status,
       apiMessage: error.message,
     };
+
+    if((error.response?.data as any)?.message?.includes('time expired')) {
+      customError = {
+        ...customError,
+        msg: "Tempo para verificar email expirado. Será necessário refazer seu cadastro.",
+      };
+    }
     
     throw customError;
   }
